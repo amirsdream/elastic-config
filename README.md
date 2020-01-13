@@ -1,6 +1,8 @@
-## github smart app design
+## Github Smart App design
 
-GitHub creates check-suite for any commit and pull request and GitHub apps based on it is configuration sends these requests to GitHub smart trigger app. (for more information please check this link ...)
+![Big picture](https://github.com/amirsdream/elastic-config/blob/master/design.png)
+
+GitHub creates check-suite for any commit and pull request and GitHub apps based on it is configuration sends these requests to GitHub smart trigger app. (for more information please check this link * [github-checks](https://developer.github.com/v3/checks/))
 
 Github smart app processes checksuite and pick configurations from configuration.yml and create check-runs based on this configurations, Then it sends these check-runs back to github.
 Also Github smart app triggers teamcity jobs and put them in rabbitmq queue until teamcity send back the result of job then it send them back to github.
