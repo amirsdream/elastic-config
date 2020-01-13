@@ -6,6 +6,6 @@ docker run -d --privileged\
   --volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
   --net=elk \
   --restart=always \
-  docker.elastic.co/beats/filebeat:7.4.2 filebeat -e -strict.perms=false \
-  -E output.elasticsearch.hosts=["elasticsearch:9200"] 
+  docker.elastic.co/beats/filebeat:7.4.2 filebeat -e -strict.perms=false 
+#  -E output.elasticsearch.hosts=["elasticsearch:9200"] 
 #  -E setup.kibana.host=http://kibana:5601

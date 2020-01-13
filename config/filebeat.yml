@@ -27,7 +27,13 @@ filebeat.inputs:
   paths:
     - /var/log/*.log
     #- c:\programdata\elasticsearch\logs\*
-
+- type: docker
+  combine_partial: true
+  containers:
+    path: "/var/lib/docker/containers"
+    stream: "stdout"
+    ids:
+      - "*"
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
   #exclude_lines: ['^DBG']
@@ -102,13 +108,13 @@ setup.template.settings:
 # These settings control loading the sample dashboards to the Kibana index. Loading
 # the dashboards is disabled by default and can be enabled either by setting the
 # options here or by using the `setup` command.
-#setup.dashboards.enabled: false
+setup.dashboards.enabled: true
 
 # The URL from where to download the dashboards archive. By default this URL
 # has a value which is computed based on the Beat name and version. For released
 # versions, this URL points to the dashboard archive on the artifacts.elastic.co
 # website.
-setup.dashboards.url: true
+#setup.dashboards.url: true
 
 #============================== Kibana =====================================
 
@@ -122,6 +128,12 @@ setup.kibana:
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
   host: "kibana:5601"
   
+  protocol: "http"
+
+  username: "elastic"
+  password: "elastictest"
+
+ 
   # Kibana Space ID
   # ID of the Kibana Space into which the dashboards should be loaded. By default,
   # the Default Space will be used.
@@ -218,3 +230,5 @@ processors:
 
 # This allows to enable 6.7 migration aliases
 #migration.6_to_7.enabled: true
+#
+#==============================================================================
