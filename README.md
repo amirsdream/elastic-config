@@ -1,4 +1,4 @@
-# github smart app design
+## github smart app design
 
 GitHub creates check-suite for any commit and pull request and GitHub apps based on it is configuration sends these requests to GitHub smart trigger app. (for more information please check this link ...)
 
